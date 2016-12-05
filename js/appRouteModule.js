@@ -1,0 +1,29 @@
+(function(){
+    angular.module("appRouteModule",[])
+        .config(["$routeProvider",function($routeProvider){
+            $routeProvider
+                .when("/bookList",{
+                    templateUrl:"tpl/bookList.html",
+                    controller:"bookListController"
+                })
+                .when("/bookDetail/:id",{
+                    templateUrl:"tpl/bookDetail.html",
+                    controller:"bookDetailController"
+                })
+                .when("/bookCart",{
+                    templateUrl:"tpl/bookCart.html",
+                    controller:"bookCartController"
+                })
+                .when("/bookOrder/:id",{
+					templateUrl:"tpl/bookOrder.html",
+					controller:"bookOrderController"
+				})
+                .when("/login",{
+                    templateUrl:"tpl/login.html",
+                    controller:"loginController"
+                })
+                .otherwise({
+                    redirectTo:"/bookList"
+                });
+        }]);
+})();
