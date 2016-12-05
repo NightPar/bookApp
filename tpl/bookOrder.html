@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3>book Order</h3>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table table-bordered">
+					<tr>
+						<th>订单号</th>
+						<th>书id</th>
+						<th>数量</th>
+					</tr>
+					<tr ng-repeat="book in bookCartList">
+						<td>
+							{{book[0]['order_id']}}
+						</td>
+						<td>
+							<span ng-repeat="hehe in book">
+								{{hehe["book_id"]}}
+							</span>
+						</td>
+						<td>
+							<span ng-repeat="hehe in book">
+								{{"Id"+hehe["book_id"]+"的\数量:"+hehe['book_num']+";"}}
+							</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<a ng-href="#/bookList">返回bookList</a>
+	</div>
+</div>
