@@ -1,0 +1,39 @@
+<div class="pannel pannel-default">
+    <div class="panel-heading">
+        <p>Book Detail</p>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <img ng-src="{{IMAGEURL+book.images[0].image_name}}" alt="" class="img-responsive img-thumbnail">
+            </div>
+            <div class="col-sm-6">
+                <dl class="dl-horizontal">
+                    <dt>Title</dt>
+                    <dd>{{book.title}}</dd>
+                    <dt>Author</dt>
+                    <dd>{{book.author}}</dd>
+                    <dt>Price</dt>
+                    <dd>{{book.price | currency:"RMB:":2}}</dd>
+                    <dt>putDate</dt>
+                    <dd>{{book.putdate*1000 | date:"yyyy-MM-dd HH:mm:ss"}}</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p ng-bind-html="book.desc"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-{{12/book.relation.length}}" ng-repeat="relatebook in book.relation">
+                <a ng-href="#/bookDetail/{{relatebook.relate_bookid}}">
+                    <img ng-src="{{IMAGEURL+relatebook['images'][0]['image_name']}}" alt="" class="img-responsive">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a href="#/bookList">返回bookList</a>
+    </div>
+</div>
