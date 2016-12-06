@@ -1,0 +1,19 @@
+(function(){
+	angular.module("bookOrderCtrlModule",[])
+			.controller("bookOrderController",["$scope","getDataService","USERSERVICE","$routeParams",
+				function($scope,getDataService,HOSTURL,USERSERVICE,$routeParams){
+					console.log(USERSERVICE.id);
+					// console.log($routeParams);
+					getDataService.requestData(
+							"orderIn.php",
+							{name:USERSERVICE.id},
+							function(data){
+								console.log(data.data.data);
+								$scope.bookCartList=data.data.data;
+							},
+							function(error){
+								console.log(error);
+							}
+						);
+			}]);
+})();
