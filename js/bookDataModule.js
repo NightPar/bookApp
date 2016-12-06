@@ -1,0 +1,10 @@
+(function(){
+    angular.module("bookDataModule",[])
+        .service("myCart",["localStorageService",function(localStorageService){
+            if(localStorageService.data){
+                this.data=localStorageService.data;
+            }else{
+                this.data={};
+            }
+        }]);
+})();
